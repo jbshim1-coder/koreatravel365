@@ -6,10 +6,10 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
-const siteId = process.env.SITE_ID || "kskindaily";
-const siteName = process.env.SITE_NAME || "K Blog";
+const siteId = process.env.SITE_ID || "koreatravel365";
+const siteName = process.env.SITE_NAME || "Korea Travel 365";
 const siteDesc = process.env.SITE_DESCRIPTION || "";
-const siteColor = process.env.SITE_COLOR || "#0071e3";
+const siteColor = process.env.SITE_COLOR || "#00b894";
 
 interface Post {
   slug: string;

@@ -8,10 +8,10 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
-const siteId = process.env.SITE_ID || "kskindaily";
-const siteName = process.env.SITE_NAME || "K Blog";
-const siteDomain = process.env.SITE_DOMAIN || "";
-const siteColor = process.env.SITE_COLOR || "#0071e3";
+const siteId = process.env.SITE_ID || "koreatravel365";
+const siteName = process.env.SITE_NAME || "Korea Travel 365";
+const siteDomain = process.env.SITE_DOMAIN || "https://koreatravel365.com";
+const siteColor = process.env.SITE_COLOR || "#00b894";
 const kbbgUrl = process.env.KBBG_URL || "https://kbeautybuyersguide.com";
 
 interface Post {

@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
 import { createClient } from "@supabase/supabase-js";
 
-const siteDomain = process.env.SITE_DOMAIN || "https://example.com";
-const siteId = process.env.SITE_ID || "kskindaily";
+const siteDomain = process.env.SITE_DOMAIN || "https://koreatravel365.com";
+const siteId = process.env.SITE_ID || "koreatravel365";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const supabase = createClient(
