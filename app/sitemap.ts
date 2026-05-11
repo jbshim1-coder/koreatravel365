@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { createClient } from "@supabase/supabase-js";
+import { LOCALES } from "./lib/locales";
 
 const siteDomain = process.env.SITE_DOMAIN || "https://koreatravel365.com";
 const siteId = process.env.SITE_ID || "koreatravel365";
@@ -17,15 +18,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .eq("site", siteId)
     .order("published_at", { ascending: false });
 
-  const posts = (data || []).map((p: { slug: string; published_at: string }) => ({
-    url: `${siteDomain}/${p.slug}`,
-    lastModified: new Date(p.published_at),
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
+  const posts = data || [];
+
+  const localeHomes = LOCALES.map((locale) => ({
+    url: `${siteDomain}/${locale}`,
+    lastModified: new Date(),
+    changeFrequency: "daily" as const,
+    priority: 0.9,
   }));
+
+  const localePosts = posts.flatMap((p: { slug: string; published_at: string }) =>
+    LOCALES.map((locale) => ({
+      url: `${siteDomain}/${locale}/${p.slug}`,
+      lastModified: new Date(p.published_at),
+      changeFrequency: "weekly" as const,
+      priority: locale === "en" ? 0.8 : 0.7,
+    }))
+  );
 
   return [
     { url: siteDomain, lastModified: new Date(), changeFrequency: "daily", priority: 1.0 },
-    ...posts,
+    ...localeHomes,
+    ...localePosts,
   ];
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import LangSwitcher from "./components/LangSwitcher";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
@@ -21,27 +22,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={inter.className}>
       <body className="min-h-screen flex flex-col bg-white text-gray-900">
-        {/* 헤더 */}
-        <header className="border-b border-gray-100 px-4 py-4">
-          <div className="mx-auto max-w-3xl flex items-center justify-between">
-            <Link href="/" className="text-lg font-bold" style={{ color: siteColor }}>
+        <header className="border-b border-gray-100 px-4 py-3">
+          <div className="mx-auto max-w-3xl flex items-center justify-between gap-3">
+            <Link href="/en" className="text-lg font-bold shrink-0" style={{ color: siteColor }}>
               {siteName}
             </Link>
-            <a
-              href={kbbgUrl}
-              target="_blank"
-              rel="noopener"
-              className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
-            >
-              Find Clinics →
-            </a>
+            <div className="flex items-center gap-3">
+              <LangSwitcher color={siteColor} />
+              <a
+                href={kbbgUrl}
+                target="_blank"
+                rel="noopener"
+                className="text-xs text-gray-400 hover:text-gray-600 transition-colors shrink-0"
+              >
+                Find Clinics →
+              </a>
+            </div>
           </div>
         </header>
 
-        {/* 본문 */}
         <main className="flex-1">{children}</main>
 
-        {/* 푸터 */}
         <footer className="border-t border-gray-100 px-4 py-8 mt-12">
           <div className="mx-auto max-w-3xl text-center space-y-3">
             <p className="text-xs text-gray-400">
@@ -59,4 +60,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-// build trigger 1777214097
