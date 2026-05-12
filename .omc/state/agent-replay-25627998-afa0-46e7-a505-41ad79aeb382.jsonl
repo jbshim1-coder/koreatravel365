@@ -1,0 +1,7 @@
+{"t":0,"agent":"af4d0e3","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"aa02047","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"system","event":"keyword_detected","keyword":"deepsearch"}
+{"t":0,"agent":"af8d09f","agent_type":"explore","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a2d12be","agent_type":"code-reviewer","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"af8d09f","agent_type":"explore","event":"agent_stop","success":true,"duration_ms":207450}
+{"t":0,"agent":"a2d12be","agent_type":"code-reviewer","event":"agent_stop","success":true,"duration_ms":3361043}
